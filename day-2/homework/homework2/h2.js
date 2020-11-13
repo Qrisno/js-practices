@@ -1,7 +1,9 @@
 let n = 1000;
 let num = 0;
-while (n > 50) {
+while (true) {
     n /= 2;
-    num++;
+    if (n <= 50) break;
+    else num++;
+
 }
 console.log(`Iterates through the loop ${num} times !`);
