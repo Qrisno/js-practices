@@ -9,13 +9,14 @@ var Books = [{
             let day2 = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate());
             let milSec = 1000 * 60 * 60 * 24;
             let diffmilSec;
-            if (typeof day1 !== 'object') {
-                return 'yet!';
-            } else {
-
+            if (day1 instanceof Date) {
                 diffmilSec = Math.abs(day2 - day1);
                 let difference = Math.floor(diffmilSec / milSec);
                 return difference + ' days ago!';
+
+            } else {
+                return 'yet!';
+
             }
         }
 
@@ -31,13 +32,14 @@ var Books = [{
             let day2 = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate());
             let milSec = 1000 * 60 * 60 * 24;
             let diffmilSec;
-            if (typeof day1 !== 'object') {
-                return 'yet!';
-            } else {
-
+            if (day1 instanceof Date) {
                 diffmilSec = Math.abs(day2 - day1);
                 let difference = Math.floor(diffmilSec / milSec);
                 return difference + ' days ago!';
+
+            } else {
+
+                return 'yet!';
             }
 
         }
@@ -53,13 +55,14 @@ var Books = [{
             let day2 = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate());
             let milSec = 1000 * 60 * 60 * 24;
             let diffmilSec;
-            if (typeof day1 !== 'object') {
-                return 'yet!';
-            } else {
-
+            if (day1 instanceof Date) {
                 diffmilSec = Math.abs(day2 - day1);
                 let difference = Math.floor(diffmilSec / milSec);
                 return difference + ' days ago!';
+
+            } else {
+                return 'yet!';
+
             }
         }
     }
@@ -77,7 +80,7 @@ function readingStatus(books) {
         arr.push(string);
 
     }
-    return arr.forEach((item) => console.log(item));
+    arr.forEach((item) => console.log(item));
 
 }
 
