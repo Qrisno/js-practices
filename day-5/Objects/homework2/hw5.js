@@ -6,7 +6,7 @@ var Books = [{
         get daysAgo() {
             let day1 = this.dateOfRead;
             let today = new Date();
-            let day2 = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate());
+            let day2 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
             let milSec = 1000 * 60 * 60 * 24;
             let diffmilSec;
             if (day1 instanceof Date) {
@@ -29,7 +29,7 @@ var Books = [{
         get daysAgo() {
             let day1 = this.dateOfRead;
             let today = new Date();
-            let day2 = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate());
+            let day2 = new Date(today.getFullYear(), today.getMonth() , today.getDate());
             let milSec = 1000 * 60 * 60 * 24;
             let diffmilSec;
             if (day1 instanceof Date) {
@@ -52,7 +52,7 @@ var Books = [{
         get daysAgo() {
             let day1 = this.dateOfRead;
             let today = new Date();
-            let day2 = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate());
+            let day2 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
             let milSec = 1000 * 60 * 60 * 24;
             let diffmilSec;
             if (day1 instanceof Date) {
