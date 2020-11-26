@@ -13,19 +13,19 @@ const data = {
 Object.defineProperty(data, 'mergeDeepRight', {
     value: function(object1, object2 = this) {
         for (var property of Object.getOwnPropertyNames(object2)) {
-            console.log(1);
+
             if (object1.hasOwnProperty(property)) {
-                console.log(2);
+
                 if (Array.isArray(object1[property])) {
-                    console.log(3);
+
                     object2[property] = [...object1[property], ...object2[property]];
 
                 } else if (typeof object2[property] === 'object') {
-                    console.log(4);
+
                     this.mergeDeepRight(object1[property], object2[property]);
 
                 } else {
-                    console.log(5);
+
                     object2[property] = object1[property];
                 }
 
