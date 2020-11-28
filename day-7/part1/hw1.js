@@ -18,17 +18,18 @@ function CoffeeMachine(power, capacity) {
     this.getWaterAmount = function() {
         return waterAmount;
     }
-   
+
     this.setOnReady = function(value) {
-        if (typeof value === 'function') {
-            onReady.prop = value();
-            return onReady.prop;
+        if (value && typeof value === 'function') {
+            onReady = value;
+            return onReady;
         }
     }
 
     function onReady() {
         console.log('Coffee is Ready');
     }
+
 
     this.run = function() {
         setTimeout(onReady, getTimeToBoil());
@@ -44,6 +45,10 @@ coffeeMachine.setOnReady(function() {
     console.log('Coffee is ready: ' + amount + 'ml');
 });
 
-coffeeMachine.run();
 
-coffeeMachine.setOnReady(); 
+coffeeMachine.run();
+coffeeMachine.setOnReady(function() {
+    var amount = coffeeMachine.getWaterAmount();
+
+    console.log('Coffee is asdsa: ' + amount + 'ml');
+});
