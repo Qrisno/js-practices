@@ -32,7 +32,9 @@ function CoffeeMachine(power, capacity) {
 
 
     this.run = function() {
+
         setTimeout(onReady, getTimeToBoil());
+
     };
 }
 
@@ -40,6 +42,7 @@ var coffeeMachine = new CoffeeMachine(20000, 500);
 coffeeMachine.setWaterAmount(150);
 
 coffeeMachine.setOnReady(function() {
+
     var amount = coffeeMachine.getWaterAmount();
 
     console.log('Coffee is ready: ' + amount + 'ml');
@@ -47,7 +50,9 @@ coffeeMachine.setOnReady(function() {
 
 
 coffeeMachine.run();
+
 coffeeMachine.setOnReady(function() {
+
     var amount = coffeeMachine.getWaterAmount();
 
     console.log('Coffee is asdsa: ' + amount + 'ml');
