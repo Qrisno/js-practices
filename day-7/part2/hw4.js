@@ -1,16 +1,15 @@
-function Hamster() {}
+function Hamster() {
 
-// empty "stomach"
-
-Hamster.prototype.found = function(something) {
-    this.food.push(something);
+    this.food = [];
+    this.found = function(something) {
+        this.food.push(something);
+    }
 };
 var speedy = new Hamster();
-speedy.food = [];
 var lazy = new Hamster();
-lazy.food = [];
+
 speedy.found("apple");
-speedy.found("nut");
+lazy.found("nut");
 
 
 console.log(speedy.food.length);
