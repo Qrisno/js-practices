@@ -4,7 +4,7 @@ function CoffeeMachine(power, capacity) {
     let running = false;
 
     function getTimeToBoil() {
-        running = true;
+
         return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
     }
 
@@ -24,17 +24,25 @@ function CoffeeMachine(power, capacity) {
     }
 
     this.setOnReady = function(value) {
-        running = false;
-        value();
+        if (value && typeof value === 'function') {
+            onReady = value;
+            if (time) {
+                clearTimeout(time);
+                this.run();
+            }
+            running = false;
+            return onReady;
+        }
     }
 
     function onReady() {
 
-        this.setOnReady;
+        console.log('Coffee is Ready');
     }
-
+    let time;
     this.run = function() {
-        setTimeout(onReady, getTimeToBoil());
+        running = true;
+        time = setTimeout(onReady, getTimeToBoil());
 
 
     };

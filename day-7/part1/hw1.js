@@ -22,6 +22,10 @@ function CoffeeMachine(power, capacity) {
     this.setOnReady = function(value) {
         if (value && typeof value === 'function') {
             onReady = value;
+            if (time) {
+                clearTimeout(time);
+                this.run();
+            }
             return onReady;
         }
     }
@@ -30,10 +34,10 @@ function CoffeeMachine(power, capacity) {
         console.log('Coffee is Ready');
     }
 
-
+    let time;
     this.run = function() {
 
-        setTimeout(onReady, getTimeToBoil());
+        time = setTimeout(onReady, getTimeToBoil());
 
     };
 }
