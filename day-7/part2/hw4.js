@@ -9,7 +9,7 @@ var speedy = new Hamster();
 var lazy = new Hamster();
 
 speedy.found("apple");
-lazy.found("nut");
+speedy.found("nut");
 
 
 console.log(speedy.food.length);
