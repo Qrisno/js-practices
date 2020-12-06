@@ -63,6 +63,9 @@ class DB{
         for(let i of users){
             if(i.hasOwnProperty('id')&& i.id === '0'){
                 for(let j=0;j<Object.keys(b).length;j++){
+                    if(!i.hasOwnProperty(Object.keys(b)[j])){
+                        throw new Error('You can only change an existing property');
+                    }
                     i[Object.keys(b)[j]]=Object.values(b)[j];
                 }
                 
