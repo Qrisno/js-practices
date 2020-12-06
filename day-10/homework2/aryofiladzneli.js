@@ -5,13 +5,10 @@ let users = [];
 data.set('users',[...users]);
 let num=0;
 class DB{
-    
-    constructor(){
+
+    create(obj){
         this.id = num.toString();
         num++;
-    }
-    
-    create(obj){
         obj['id']=this.id;
         let arr = Object.keys(obj);
         
@@ -61,7 +58,7 @@ class DB{
         }
         let ob;
         for(let i of users){
-            if(i.hasOwnProperty('id')&& i.id === '0'){
+            if(i.hasOwnProperty('id')&& i.id === this.id){
                 for(let j=0;j<Object.keys(b).length;j++){
                     if(!i.hasOwnProperty(Object.keys(b)[j])){
                         throw new Error('You can only change an existing property');
@@ -87,8 +84,10 @@ class DB{
     }
     find(obj){
         if(typeof obj !== 'object'){
-            throw new Error('Parameter must be an object');
+            throw new Error('obj not type of object');
         }
+        let keys = Object.keys(obj);
+        
         let satisfied = [];
         for(let i of users){
             let n = 0;
@@ -99,16 +98,22 @@ class DB{
                 n++;
             }
             if(i.hasOwnProperty('age') && obj['age'].hasOwnProperty('min')||obj['age'].hasOwnProperty('max')){
-                n++;
+                if(i['age']>=obj['age']['min']||i['age']>=obj['age']['min']&&i['age']<=obj['age']['max']){
+                    n++;
+                }
+                
             }
             if(i.hasOwnProperty('salary') && obj['salary'].hasOwnProperty('min')||obj['salary'].hasOwnProperty('max')){
-                n++;
+                if(i['salary']>=obj['salary']['min']&&i['salary']<=obj['salary']['max']){
+                    n++;
+                }
             }
-            if(n===4){
+            if(n===keys.length){
                 satisfied.push(i);
             }
             
         }
+        
         return satisfied;
     }
 }
@@ -128,8 +133,10 @@ db.update(id, { age: 22 });
 
 
 
+
 const query = {
-    country: 'ua',
+   
+   
     age: {
         min: 21
     },
@@ -139,6 +146,7 @@ const query = {
     }
 };
 const customers = db.find(query);
+
 
 
 

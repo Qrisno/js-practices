@@ -5,13 +5,9 @@ let users = [];
 data.set('users',[...users]);
 let num=0;
 class DB{
-    
-    constructor(){
+    create(obj){
         this.id = num.toString();
         num++;
-    }
-    
-    create(obj){
         obj['id']=this.id;
         let arr = Object.keys(obj);
         
@@ -61,7 +57,7 @@ class DB{
         }
         let ob;
         for(let i of users){
-            if(i.hasOwnProperty('id')&& i.id === '0'){
+            if(i.hasOwnProperty('id')&& i.id === this.id){
                 for(let j=0;j<Object.keys(b).length;j++){
                     if(!i.hasOwnProperty(Object.keys(b)[j])){
                         throw new Error('You can only change an existing property');
@@ -99,6 +95,7 @@ const id = db.create(person);
 const customer = db.read(id);
 const customers = db.readAll();
 db.update(id, { age: 22 });
+
 
 
 
