@@ -98,10 +98,9 @@ class DB{
                 n++;
             }
             if(i.hasOwnProperty('age') && obj['age'].hasOwnProperty('min')||obj['age'].hasOwnProperty('max')){
-                if(i['age']>=obj['age']['min']||i['age']>=obj['age']['min']&&i['age']<=obj['age']['max']){
+                if(i['age']>=obj['age']['min']||(i['age']>=obj['age']['min']&&i['age']<=obj['age']['max'])){
                     n++;
                 }
-                
             }
             if(i.hasOwnProperty('salary') && obj['salary'].hasOwnProperty('min')||obj['salary'].hasOwnProperty('max')){
                 if(i['salary']>=obj['salary']['min']&&i['salary']<=obj['salary']['max']){
@@ -147,6 +146,6 @@ const query = {
 };
 const customers = db.find(query);
 
-
+console.log(customers);
 
 
