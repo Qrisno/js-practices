@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    img{
+        width: 500px;
+        height: 500px;
+    }
+</style>
+<body>
+    
+    <img src="">
+    <p>length: </p>
+    <button id="button">Next Image</button>
+    <script type="text/javascript">
+       
+        let images = ['https://cdn.eso.org/images/thumb300y/eso1322a.jpg', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg','https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg','https://photojournal.jpl.nasa.gov/jpeg/PIA23689.jpg','https://media3.s-nbcnews.com/j/newscms/2019_41/3047866/191010-japan-stalker-mc-1121_06b4c20bbf96a51dc8663f334404a899.fit-760w.JPG'];
+        let image = document.getElementsByTagName('img');
+        let button = document.getElementById('button');
+        let p = document.getElementsByTagName('p');
+        image[0].src  = images[0];
+        p[0].innerText = `length: ${images.length}`;
+        button.addEventListener("click", ()=>{
+            let random = Math.floor(Math.random()*images.length);
+            image[0].src=images[random];
+            
+        })
+            
+        
+    </script>
+</body>
+</html>

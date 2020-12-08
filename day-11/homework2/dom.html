@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 1</title>
+</head>
+<body>
+    <div id="textBox">
+        <strong>Lorem ipsum</strong> dolor, sit amet consectetur adipisicing elit. Nemo sint earum ab <strong>totam</strong> praesentium aperiam suscipit reiciendis doloribus, sequi incidunt atque necessitatibus <strong>ipsam tempora</strong> obcaecati numquam provident modi, doloremque magni?
+    </div>
+
+    <script>
+        let box = document.getElementById('textBox');
+        let bolded = document.getElementsByTagName('strong');
+        console.log(bolded);
+        box.onmouseover = function (){
+            for(let i of bolded){
+                i.style.fontSize = '50px';
+                i.style.color = 'green';
+                
+            }
+        }
+        box.onmouseout = function(){
+            for(let i of bolded){
+                i.style.color = 'initial';
+                i.style.fontSize = 'initial';
+            }
+        }
+    </script>
+</body>
+</html>

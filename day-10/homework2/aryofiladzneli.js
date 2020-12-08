@@ -146,6 +146,6 @@ const query = {
 };
 const customers = db.find(query);
 
-console.log(customers);
+
 
 
